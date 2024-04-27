@@ -1,3 +1,5 @@
-World War Two,D.D.E,101,History,1951-12-02,Available
-Title, author,1001, genre, publication_date,Available
-Title1, author1,1002, genre1, publication_date1,Available
+World War Two,D.D.E,101,Fiction,1951-12-02,Available
+Title,author,1001,History,publication_date,Available
+Title1,author1,1002,Biography,publication_date1,Available
+Hello World,Daniel Durant,21,Non-Fiction,2023-04-26,Available
+Hello World Two,Daniel Durant,21,Non-Fiction,2023-04-26,Available
