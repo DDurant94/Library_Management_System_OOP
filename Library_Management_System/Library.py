@@ -153,7 +153,7 @@ class Genre:
       self._category = new_category
 
   def view_genre_details(self):
-    print(f"{self.get_genre_name()}:\nDescription-{self.get_description()}\nCategory: {self.get_category()}")
+    print(f"{self.get_genre_name()}:\nDescription- {self.get_description()}\nCategory: {self.get_category()}")
 
 class UserInterface:
   def __init__ (self):
@@ -206,7 +206,7 @@ class UserInterface:
       if user_operation_choice == "1":
         Adding_information.add_user(self.user_file)
       elif user_operation_choice == "2":
-        users_name = input("Enter Username: ").title()
+        users_name = input("Enter users First and Last Name: ").title()
         if users_name not in self.user_file:
           print(f"{users_name} not found in User Data Base")
         else:
@@ -334,7 +334,7 @@ class FileHandling:
     try:
       with open(author_file, 'w') as file:
         for author, author_info in changed_author_file.items():
-          file.write(f"{author_info.author_name}/{author_info.biography}\n")
+          file.write(f"{author_info.get_author_name()}/{author_info.get_biography()}\n")
     except FileNotFoundError:
       print("Not Saved")
     except AttributeError:
@@ -354,7 +354,7 @@ class FileHandling:
     try:
       with open(genres_file, 'w') as file:
         for genre, genre_info in changed_genres_file.items():
-          file.write(f"{genre_info.genre_name()}/{genre_info.description}/{genre_info.category}\n")
+          file.write(f"{genre_info.get_genre_name()}/{genre_info.get_description()}/{genre_info.get_category()}\n")
     except FileNotFoundError:
       print("Not Saved")
     except AttributeError:
@@ -423,7 +423,7 @@ class Adding_information:
 
   def add_user(user_file):
     try:
-      user_name = input("Enter Name of user to be added: ").title()
+      user_name = input("Enter First and Last Name of user to be added: ").title()
       if Adding_information.users_name_authenticator(user_name):
         if user_name not in user_file:
           library_id = int(input("Enter Library I.D. Number: "))
@@ -483,7 +483,7 @@ class EditInfo:
     else:
       while True:
         try:
-          print("Book Edit Menu:\n1. Author\n2. ISBN\n3. Genre\n4. Publication Date\n5. Exit")
+          print("Book Edit Menu:\n1. Author\n2. ISBN\n3. Genre\n4. Publication Date\n5. Change User Name\n6. Exit")
           book_edit_choice = input("Choose an option: ")
           if book_edit_choice == "1":
             author_edit = input("Enter Author Edit: ").title()
@@ -497,7 +497,10 @@ class EditInfo:
           elif book_edit_choice == "4":
             publication_date_edit = input("Enter New Publication Date YYYY-MM-DD: ")
             book_info[book_name].set_publication_date(publication_date_edit)
-          elif book_edit_choice == "5":
+          elif book_edit_choice =="5":
+            print("Coming Soon...")
+            pass
+          elif book_edit_choice == "6":
             FileHandling.export_book_file("library_Management_System\\book_inventory.txt",book_info)
             print("Return to Book Menu...")
             break
@@ -508,7 +511,7 @@ class EditInfo:
 
   def edit_user(user_info):
     try:
-      user_name = input("Enter Users Name to Edit: ").title()
+      user_name = input("Enter Users First and Last Name to Edit: ").title()
       if user_name not in user_info:
         print(f"{user_name} not found in User Data Base")
       else:
