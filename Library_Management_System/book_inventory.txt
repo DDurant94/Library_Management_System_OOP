@@ -3,4 +3,3 @@ Title,author,1001,History,publication_date,Available
 Title1,author1,1002,Biography,publication_date1,Available
 Hello World,Daniel Durant,21,Non-Fiction,2023-04-26,Available
 Hello World Two,Daniel Durant,21,Non-Fiction,2023-04-26,Available
-
